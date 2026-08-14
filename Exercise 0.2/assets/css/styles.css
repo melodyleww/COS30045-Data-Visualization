@@ -58,8 +58,7 @@ nav {
 }
 
 .nav-menu a:hover {
-    background-color: #F7A327;
-    color: #333;
+    color: #FBE79C;
 }
 
 .nav-menu a.active {
