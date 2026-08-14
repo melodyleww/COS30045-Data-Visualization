@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Televisions - Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/PowerIcon.png" alt="Power Logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="televisions.html" class="active">Televisions</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h1>Television Energy Consumption</h1>
+            <p>Understanding the energy impact of TVs in Australian homes</p>
+        </section>
+
+        <section class="content">
+            <h2>TV Energy Usage</h2>
+            <p>
+                Televisions are a common appliance in Australian households, with many homes having 
+                multiple TVs. Modern televisions, especially LED and OLED models, are significantly 
+                more energy-efficient than older CRT or plasma models.
+            </p>
+            <p>
+                A typical modern LED TV consumes between 50-150 watts depending on screen size and 
+                technology. Larger screens and OLED technology generally consume more energy.
+            </p>
+
+            <h2>Energy Comparison by TV Type</h2>
+            <ul>
+                <li><strong>LED/LCD (32 inches):</strong> ~50-70 watts</li>
+                <li><strong>LED/LCD (55 inches):</strong> ~80-120 watts</li>
+                <li><strong>OLED (55 inches):</strong> ~100-150 watts</li>
+                <li><strong>Plasma (older):</strong> ~200-300 watts</li>
+            </ul>
+        </section>
+
+        <!-- Energy Calculator -->
+        <section class="calculator-section">
+            <h2>Appliance Energy Calculator</h2>
+            <p>Calculate the energy consumption and cost of your TV:</p>
+            
+            <form id="energy-calculator">
+                <div class="form-group">
+                    <label for="wattage">Power Usage (Watts):</label>
+                    <input type="number" id="wattage" placeholder="e.g., 100" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hours">Hours Used Per Day:</label>
+                    <input type="number" id="hours" placeholder="e.g., 4" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Electricity Price (cents/kWh):</label>
+                    <input type="number" id="price" placeholder="e.g., 25" required>
+                </div>
+                
+                <button type="button" onclick="calculateEnergy()">Calculate</button>
+            </form>
+            
+            <div id="results">
+                <!-- Results will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Melody Lew</p>
+        <p>Generative AI was used to assist with this project.</p>
+    </footer>
+
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

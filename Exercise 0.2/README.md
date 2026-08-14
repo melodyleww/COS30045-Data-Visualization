@@ -62,3 +62,48 @@ energy-webpage-v1
 │
 ├── index.html
 └── README.md
+
+# Generative AI Reflection
+
+Which tool(s) I used:
+I used ChatGPT (OpenAI) to assist with writing HTML structure, CSS styling, and JavaScript functionality for this exercise.
+
+What I used GenAI for:
+HTML Structure: Generated the basic page layouts for index.html, televisions.html, and about.html
+
+CSS Styling: Created consistent styling with the logo's color scheme and navigation menu design
+
+JavaScript: Assisted with the FAQ accordion functionality and the interactive energy calculator
+
+Debugging: Helped identify and fix syntax errors and logic issues
+
+What I changed or adapted after generation:
+Adjusted the color palette to better match the PowerIcon.png logo
+
+Modified the navigation menu to include proper active page highlighting
+
+Restructured the HTML to follow the required folder organization (css/, js/, images/, data/)
+
+Refined the JavaScript to handle edge cases and improve user experience
+
+Changed placeholder content to be more relevant to appliance energy consumption in Australia
+
+What I learned from using GenAI:
+Understanding how to structure a multi-page website with consistent navigation
+
+How to implement an accordion FAQ section using vanilla JavaScript
+
+The importance of separating HTML structure, CSS styling, and JavaScript behavior
+
+How to create an interactive calculator that responds to user input in real-time
+
+Best practices for organizing files in a web development project
+
+Limitations or issues I encountered:
+The AI-generated code sometimes needed adjustments to work correctly with my specific folder structure
+
+Some generated CSS required tweaking to ensure consistent cross-page styling
+
+The energy calculator logic needed refinement for accurate calculations
+
+Had to ensure the code worked properly after page refresh without losing state
