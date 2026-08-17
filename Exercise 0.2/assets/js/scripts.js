@@ -3,20 +3,26 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all FAQ question buttons
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    // Add click event to each question
-    faqQuestions.forEach(button => {
-        button.addEventListener('click', function() {
-            // Toggle active class on button
-            this.classList.toggle('active');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        question.addEventListener('click', function() {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').classList.remove('open');
+                    otherItem.querySelector('.faq-question').classList.remove('active');
+                }
+            });
             
-            // Find the answer (next sibling)
-            const answer = this.nextElementSibling;
-            
-            // Toggle the open class
+            // Toggle this item
+            item.classList.toggle('active');
             answer.classList.toggle('open');
+            question.classList.toggle('active');
         });
     });
 });
