@@ -13,7 +13,6 @@ d3.csv("data/tvBrandCount.csv", d => {
   };
 }).then(data => {
   
-  // Log data info
   console.log("Data loaded:", data);
   console.log("Number of brands:", data.length);
   console.log("Max count:", d3.max(data, d => d.count));
@@ -25,31 +24,29 @@ d3.csv("data/tvBrandCount.csv", d => {
   console.log("Sorted data:", data);
   
   // ============================================
-  // Create SVG with dynamic height
+  // Create SVG (fixed viewBox per exercise instructions)
   // ============================================
-  
-  const barHeight = 20;
-  const barSpacing = 5;
-  const chartHeight = data.length * (barHeight + barSpacing) + 50;
   
   const svg = d3.select(".responsive-svg-container")
       .append("svg")
-        .attr("viewBox", `0 0 1200 ${chartHeight}`)
+        .attr("viewBox", "0 0 1200 1600")
         .style("border", "1px solid black");
   
-  // ============================================
-  // Draw the bar chart
-  // ============================================
-  
-  drawBarChart(data, svg, barHeight, barSpacing);
+  // Call the draw function
+  drawBarChart(data, svg);
 });
 
 // ============================================
 // STEP 1 & 2 & 3: Draw the bar chart
 // ============================================
 
-const drawBarChart = (data, svg, barHeight, barSpacing) => {
+const drawBarChart = (data, svg) => {
 
+    // Constant for bar height and spacing
+    const barHeight = 20;
+    const barSpacing = 5;
+    
+    // Bind data to rectangles
     svg
       .selectAll("rect")
       .data(data)
