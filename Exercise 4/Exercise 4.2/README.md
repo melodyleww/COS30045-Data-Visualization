@@ -1,109 +1,75 @@
-# COS30045 – Data Visualisation  
-## Exercise 0.2 – Energy Website
+# Exercise 4.2: Manipulate and Add Elements with D3
 
-Welcome to **Exercise 0.2** for COS30045 Data Visualisation.
+## Aim
+Become familiar with using D3 to change appearance and add elements to your webpage.
 
-In this exercise, you will build a simple **Energy Data Webpage** using **HTML, CSS, and JavaScript**. The purpose of this exercise is to familiarise you with the development workflow using **GitHub and VS Code**, while preparing the foundation for future data visualisation tasks.
-
----
-
-# Objective
-
-The objectives of this exercise are:
-
-- Understand how to use **GitHub for version control**
-- Practice **web development structure**
-- Build a **basic website**
-- Maintain **regular commits**
-- Identify commits that include **GenAI-generated code**
+## Purpose
+To learn how D3 works to alter elements and add objects to the DOM.
 
 ---
 
-# Step 1 – Fork the Repository
+## What I Did
 
-1. Open this repository.
-2. Click **Fork** at the top right of the page.
-3. This will create a copy of the repository in your GitHub account.
+### Step 1: Add a new js file for D3 code
+- Created assets/js/main.js for D3 code
+- Kept the existing assets/js/scripts.js (Exercise 0.2) separate
+- Added D3 library and main.js to index.html
 
-Example:
+### Step 2: Apply styles using D3
+Used D3 to select and style HTML elements:
 
-Original repository : "github.com/rishmaf/COS30045-Data-Visualization/energy-webpage"
+d3.select("h1").style("color", "#F7A327");
+d3.selectAll("h2").style("color", "#81663E").style("border-bottom", "2px solid #F7A327");
+d3.selectAll("p").style("font-size", "1rem").style("line-height", "1.8");
 
-Your forked repository : "github.com/yourusername/COS30045-Data-Visualization/energy-webpage"
+### Step 3: Append elements using D3
+Added new paragraphs to a container div:
 
+d3.select(".container")
+  .append("p")
+  .style("background-color", "#FBE79C")
+  .text("Purchasing a low energy consumption TV will help with your energy bills!");
+
+### Step 4: Append an SVG using D3
+Created an SVG with rectangles:
+
+d3.select(".svg-container")
+  .append("svg")
+    .attr("width", "100%")
+    .attr("height", "200")
+    .attr("viewBox", "0 0 400 200");
+
+d3.select(".svg-container svg")
+  .append("rect")
+    .attr("x", 50)
+    .attr("y", 50)
+    .attr("width", 100)
+    .attr("height", 30)
+    .style("fill", "#F7A327");
+
+Added multiple rectangles and text labels to create a simple bar chart.
 
 ---
 
-# Step 2 – Clone the Repository
+## Files
+- assets/js/main.js (new file)
+- index.html (updated with D3 library and main.js)
+- assets/css/styles.css (added D3 element styles)
 
-Clone your forked repository to your local machine using **VS Code** or the terminal.
+---
 
+## AI Declaration
 
+DeepSeek was used to assist with:
+- D3 syntax and code structure
+- Understanding d3.select(), d3.selectAll(), and .append()
 
-# Step 3 – Project Structure
+All code was reviewed, tested, and modified to meet the requirements of Exercise 4.2.
 
+---
 
-Your project must follow the structure below.
+## References
+- Dufour, A., & Meeks, E. (2024). D3 for Data Visualization.
+- Swinburne University of Technology. (2026). COS30045 Data Visualisation – Week 4 Class Slides.
 
-```bash
-energy-webpage-v1
-│
-├── css
-│   └── styles.css
-│
-├── js
-│   └── scripts.js
-│
-├── images
-│   └── PowerIcon.png
-│
-├── data
-│   └── data.csv
-│
-├── index.html
-└── README.md
-
-# Generative AI Reflection
-
-Which tool(s) I used:
-I used ChatGPT (OpenAI) to assist with writing HTML structure, CSS styling, and JavaScript functionality for this exercise.
-
-What I used GenAI for:
-HTML Structure: Generated the basic page layouts for index.html, televisions.html, and about.html
-
-CSS Styling: Created consistent styling with the logo's color scheme and navigation menu design
-
-JavaScript: Assisted with the FAQ accordion functionality and the interactive energy calculator
-
-Debugging: Helped identify and fix syntax errors and logic issues
-
-What I changed or adapted after generation:
-Adjusted the color palette to better match the PowerIcon.png logo
-
-Modified the navigation menu to include proper active page highlighting
-
-Restructured the HTML to follow the required folder organization (css/, js/, images/, data/)
-
-Refined the JavaScript to handle edge cases and improve user experience
-
-Changed placeholder content to be more relevant to appliance energy consumption in Australia
-
-What I learned from using GenAI:
-Understanding how to structure a multi-page website with consistent navigation
-
-How to implement an accordion FAQ section using vanilla JavaScript
-
-The importance of separating HTML structure, CSS styling, and JavaScript behavior
-
-How to create an interactive calculator that responds to user input in real-time
-
-Best practices for organizing files in a web development project
-
-Limitations or issues I encountered:
-The AI-generated code sometimes needed adjustments to work correctly with my specific folder structure
-
-Some generated CSS required tweaking to ensure consistent cross-page styling
-
-The energy calculator logic needed refinement for accurate calculations
-
-Had to ensure the code worked properly after page refresh without losing state
+---
