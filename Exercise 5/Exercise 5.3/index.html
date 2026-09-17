@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5.3 - Bar, Line & Donut Charts</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>TV Energy Consumption & Data Visualisation</h1>
+        <p>Exploring energy data with D3.js charts</p>
+    </header>
+
+    <main>
+        <!-- Bar Chart Section -->
+        <section class="chart-section">
+            <h2>Average Energy Consumption by Screen Type (55-inch TVs)</h2>
+            <div class="responsive-svg-container">
+                <div id="bar-chart"></div>
+            </div>
+        </section>
+
+        <!-- Line Chart Section -->
+        <section class="chart-section">
+            <h2>Average Electricity Spot Prices in Australia (1998–2024)</h2>
+            <div class="responsive-svg-container">
+                <div id="line-chart"></div>
+            </div>
+        </section>
+
+        <!-- Donut Chart Section -->
+        <section class="chart-section">
+            <h2>Proportion of TV Models by Screen Size Category</h2>
+            <div class="responsive-svg-container">
+                <div id="donut-chart"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eva Lew Tze Ling</p>
+        <p>Generative AI was used to assist with this project.</p>
+    </footer>
+
+    <!-- Load D3 Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Load D3 code for each chart -->
+    <script src="js/main.js"></script>
+    <script src="js/line-chart.js"></script>
+    <script src="js/donut-chart.js"></script>
+</body>
+</html>
