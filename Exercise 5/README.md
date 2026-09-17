@@ -1,53 +1,69 @@
-# Exercise 5 – Multi-Chart Webpage
+# Exercise 5.1: Vertical Bar Chart with Axis
 
 ## Aim
-Create a variety of different chart types using **D3.js**.
+Learn how to add scaled x and y axis with labels.
 
 ## Purpose
-In previous exercises, we created simple charts such as a horizontal bar chart. In this exercise, you will extend your skills by building multiple chart types and presenting them on a webpage.
+To create a vertical bar chart with labeled x and y axes.
 
-This activity focuses on using **D3 to visualise different types of data** and understanding when different charts are appropriate.
+---
 
-## Charts to Create
+## What I Did
 
-Using the provided **TV energy consumption dataset** (or your own dataset), your webpage must include the following chart types:
+### Step 1: Prepare the data
+- Used KNIME to filter 55-inch TV models only
+- Used GroupBy to find average energy consumption per screen type
+- Exported to CSV as `Data_exercise 5.1.csv`
 
-- **Scatter Plot**  
-  Energy consumption vs star rating.
+### Step 2: Load data with D3
+- Used `d3.csv()` to load the data
+- Converted `energy_consumption` to a number
+- Sorted data by energy consumption (descending)
 
-- **Donut Chart**  
-  Energy consumption for different screen technologies across all TVs combined.
+### Step 3: Set up function and margins
+- Created `drawBarChart()` function
+- Defined margins: top 40, right 40, bottom 80, left 80
+- Created inner chart group with `transform` for margins
 
-- **Bar Chart**  
-  Energy consumption for different screen technologies for **55-inch TVs only**.
+### Step 4: Set up scales
+- **xScale:** `d3.scaleBand()` for screen types (categorical)
+- **yScale:** `d3.scaleLinear()` for energy consumption (quantitative)
 
-- **Line Chart**  
-  Spot power prices from **1998 to 2024** (either plot the average or include a line for each state).
+### Step 5: Add axes
+- Added x-axis with `d3.axisBottom()`
+- Added y-axis with `d3.axisLeft()`
+- Added y-axis label using `rotate(-90)`
 
-You may use the **provided datasets** or your **own dataset**, but your webpage must include **one example of each chart type**.
+### Step 6: Add bars
+- Bound data to rectangles
+- Used `xScale` for x position and width
+- Used `yScale` for y position and height
+- Added `.bar` class for styling
 
-## Preparation
+### Step 7: Add value labels
+- Added text labels above each bar showing the energy value
 
-Before starting this exercise, it is recommended that you:
+---
 
-- Review this week's **lecture slides**
-- Review **Chapter 4 and Chapter 5 of Dufour and Meeks (2024)**
+## Files
+- `index.html`
+- `css/styles.css`
+- `js/main.js`
+- `data/Data_exercise 5.1.csv`
 
-## Instructions
+---
 
-Use the **forked repository that you created earlier for this unit**.
+## AI Declaration
 
-1. Open your existing **forked repository**.
-2. Navigate to the **Exercise 5 folder**.
-3. Add your code and files for this exercise inside that folder.
-4. Build a webpage that displays the required charts using **D3.js**.
-5. Commit and push your changes regularly to your GitHub repository.
+**DeepSeek** was used to assist with:
+- D3 axis setup and labeling
+- Understanding margins and inner chart positioning
+- Scale configurations for vertical bar charts
 
-## Submission
+All code was reviewed, tested, and modified to meet the requirements of Exercise 5.1.
 
-Your **forked repository** will serve as your submission.
+---
 
-Ensure that:
-- All Exercise 5 files are inside the **Exercise 5 folder**
-- Your code is pushed to GitHub
-- Your repository link is submitted through the submission system.
+## References
+- Dufour, A., & Meeks, E. (2024). *D3 for Data Visualization*.
+- Swinburne University of Technology. (2026). *COS30045 Data Visualisation – Week 5 Class Slides*.
