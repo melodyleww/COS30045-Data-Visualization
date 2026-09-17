@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5.2 - Bar Chart & Line Chart</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>TV Energy Consumption & Electricity Prices</h1>
+        <p>Comparing energy data and trends in Australia</p>
+    </header>
+
+    <main>
+        <!-- Bar Chart Section -->
+        <section class="chart-section">
+            <h2>Average Energy Consumption by Screen Type (55-inch TVs)</h2>
+            <div class="responsive-svg-container">
+                <div id="bar-chart"></div>
+            </div>
+        </section>
+
+        <!-- Line Chart Section -->
+        <section class="chart-section">
+            <h2>Average Electricity Spot Prices in Australia (1998–2024)</h2>
+            <div class="responsive-svg-container">
+                <div id="line-chart"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eva Lew Tze Ling</p>
+        <p>Generative AI was used to assist with this project.</p>
+    </footer>
+
+    <!-- Load D3 Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Load D3 code for bar chart -->
+    <script src="js/main.js"></script>
+    
+    <!-- Load D3 code for line chart -->
+    <script src="js/line-chart.js"></script>
+</body>
+</html>
