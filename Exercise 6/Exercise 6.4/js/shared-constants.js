@@ -1,5 +1,5 @@
 // ============================================
-// Exercise 6.3: Shared Constants
+// Exercise 6.4: Shared Constants
 // ============================================
 
 // ============================================
@@ -21,16 +21,11 @@ const barColor = "#F7A327";
 const barHoverColor = "#81663E";
 
 // ============================================
-// Scales (Histogram)
+// Scales
 // ============================================
 
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
-
-// ============================================
-// Scales (Scatterplot)
-// ============================================
-
 const xScaleS = d3.scaleLinear();
 const yScaleS = d3.scaleLinear();
 
@@ -38,8 +33,8 @@ const yScaleS = d3.scaleLinear();
 // Inner chart references
 // ============================================
 
-let innerChart;        // For histogram
-let innerChartS;       // For scatterplot
+let innerChart;
+let innerChartS;
 
 // ============================================
 // Bin generator
@@ -50,7 +45,7 @@ const binGenerator = d3.bin()
     .thresholds(14);
 
 // ============================================
-// Filter configuration
+// Histogram filter (Screen Technology)
 // ============================================
 
 const filters = [
@@ -58,6 +53,17 @@ const filters = [
     { id: "lcd", label: "LCD", isActive: false },
     { id: "led", label: "LED", isActive: false },
     { id: "oled", label: "OLED", isActive: false }
+];
+
+// ============================================
+// Scatterplot filter (Screen Size)
+// ============================================
+
+const sizeFilters = [
+    { id: "all-sizes", label: "All Sizes", isActive: true },
+    { id: "small", label: "Small (<43\")", isActive: false },
+    { id: "medium", label: "Medium (43–65\")", isActive: false },
+    { id: "large", label: "Large (>65\")", isActive: false }
 ];
 
 // ============================================
@@ -69,8 +75,8 @@ const colorScale = d3.scaleOrdinal()
     .range(["#F7A327", "#81663E", "#DCC8A8"]);
 
 // ============================================
-// Tooltip dimensions (for Exercise 6.4)
+// Tooltip dimensions
 // ============================================
 
-const tooltipWidth = 150;
-const tooltipHeight = 60;
+const tooltipWidth = 220;
+const tooltipHeight = 85;

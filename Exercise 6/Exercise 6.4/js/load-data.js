@@ -16,16 +16,17 @@ d3.csv("data/W6_TVdata.csv", d => {
   console.log("Data loaded:", data);
   console.log("Number of TVs:", data.length);
   
-  // Draw the histogram
+  // Draw charts
   drawHistogram(data);
-  
-  // Draw the scatterplot
   drawScatterplot(data);
   
-  // Populate the filter buttons
-  populateFilters(data);
+  // Populate filters
+  populateTechFilters(data);    // For histogram
+  populateSizeFilters(data);    // For scatterplot
   
-  // Create tooltip and attach mouse events
+  // Tooltips
   createTooltip();
   handleMouseEvents();
+  createHistogramTooltip();
+  handleHistogramMouseEvents();
 });
