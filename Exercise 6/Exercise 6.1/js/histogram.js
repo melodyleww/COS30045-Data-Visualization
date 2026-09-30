@@ -101,7 +101,7 @@ const drawHistogram = data => {
           .attr("x", innerWidth / 2)
           .attr("y", innerHeight + 50)
           .attr("text-anchor", "middle")
-          .text("Energy Consumption (kWh/year)");
+          .text("LabelledEnergy Consumption (kWh/year)");
 
     innerChart
         .append("text")

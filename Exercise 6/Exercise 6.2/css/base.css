@@ -55,6 +55,17 @@ main {
     margin-bottom: 1rem;
 }
 
+/* ============================================
+   CHART SUBTITLE
+   ============================================ */
+
+.chart-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
 /* ----- Footer ----- */
 footer {
     background-color: #ffffff;
