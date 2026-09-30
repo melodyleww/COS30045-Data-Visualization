@@ -101,10 +101,9 @@ const drawHistogram = data => {
 
     innerChart
         .append("text")
-          .attr("class", "axis-label")
-          .attr("x", -innerHeight / 2)
-          .attr("y", -50)
-          .attr("transform", "rotate(-90)")
-          .attr("text-anchor", "middle")
-          .text("Frequency (Number of TVs)");
+            .attr("class", "axis-label")
+            .attr("x", 20)
+            .attr("y", -10)
+            .attr("text-anchor", "middle")
+            .text("Frequency (Number of TVs)");
 };

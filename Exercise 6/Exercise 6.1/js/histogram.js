@@ -101,14 +101,13 @@ const drawHistogram = data => {
           .attr("x", innerWidth / 2)
           .attr("y", innerHeight + 50)
           .attr("text-anchor", "middle")
-          .text("LabelledEnergy Consumption (kWh/year)");
+          .text("Labelled Energy Consumption (kWh/year)");
 
     innerChart
         .append("text")
-          .attr("class", "axis-label")
-          .attr("x", -innerHeight / 2)
-          .attr("y", -50)
-          .attr("transform", "rotate(-90)")
-          .attr("text-anchor", "middle")
-          .text("Frequency (Number of TVs)");
+            .attr("class", "axis-label")
+            .attr("x", 20)
+            .attr("y", -10)
+            .attr("text-anchor", "middle")
+            .text("Frequency (Number of TVs)");
 };
