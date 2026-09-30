@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6.3 - Histogram & Scatterplot</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisation.css">
+</head>
+<body>
+    <header>
+        <h1>TV Energy Consumption Dashboard</h1>
+        <p>Exploring TV energy consumption and star ratings in Australia</p>
+    </header>
+
+    <main>
+        <!-- Histogram Section -->
+        <section class="chart-section">
+            <h2>Energy Consumption for different TV screen types and sizes</h2>
+            <p class="chart-subtitle">Most TV's on sale in Australia are LED and they vary considerably in energy consumption.</p>
+
+            <div id="filters_screen"></div>
+            <div class="responsive-svg-container">
+                <div id="histogram"></div>
+            </div>
+        </section>
+
+        <!-- Scatterplot Section -->
+        <section class="chart-section">
+            <h2>Energy Consumption vs Star Rating</h2>
+            <p class="chart-subtitle">Explore the relationship between energy consumption, star ratings, and screen type.</p>
+
+            <div id="scatterplot" class="responsive-svg-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eva Lew Tze Ling</p>
+        <p>Generative AI was used to assist with this project.</p>
+    </footer>
+
+    <!-- Load D3 Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Load JS files in order -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/load-data.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
+</body>
+</html>
