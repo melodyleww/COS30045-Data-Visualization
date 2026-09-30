@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6.2 - Histogram with Filters</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisation.css">
+</head>
+<body>
+    <header>
+        <h1>TV Energy Consumption Histogram</h1>
+        <p>Frequency distribution of TV energy consumption (kWh/year)</p>
+    </header>
+
+    <main>
+        <section class="chart-section">
+            <h2>Filter by Screen Technology</h2>
+            <div id="filters_screen"></div>
+            <div class="responsive-svg-container">
+                <div id="histogram"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eva Lew Tze Ling</p>
+        <p>Generative AI was used to assist with this project.</p>
+    </footer>
+
+    <!-- Load D3 Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Load JS files in order -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/load-data.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/histogram.js"></script>
+</body>
+</html>
