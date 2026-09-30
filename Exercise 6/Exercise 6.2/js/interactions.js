@@ -1,19 +1,15 @@
 // ============================================
-// Exercise 6.2: Interactions (Filters)
+// Exercise 6.2: Interactions (Filters + Extensions)
+// ============================================
+
+// ============================================
+// Screen Technology Filter (multi-select)
 // ============================================
 
 const populateFilters = data => {
 
-    // ============================================
-    // Select the filter container
-    // ============================================
-    
     const filtersContainer = d3.select("#filters_screen");
 
-    // ============================================
-    // Add filter buttons
-    // ============================================
-    
     filtersContainer
         .selectAll("button")
         .data(filters)
@@ -22,81 +18,102 @@ const populateFilters = data => {
           .text(d => d.label)
           .on("click", function(event, d) {
             
-            // ============================================
-            // Toggle the isActive state
-            // ============================================
-            
-            // If "all" is clicked, set it to active and all others to false
             if (d.id === "all") {
                 filters.forEach(f => f.isActive = (f.id === "all"));
             } else {
-                // Toggle this filter
                 d.isActive = !d.isActive;
-                
-                // If any specific filter is active, deactivate "all"
                 const anyActive = filters.some(f => f.id !== "all" && f.isActive);
                 filters.find(f => f.id === "all").isActive = !anyActive;
             }
             
             console.log("Filter states:", filters);
             
-            // ============================================
-            // Update button classes (visual state)
-            // ============================================
-            
             filtersContainer
                 .selectAll("button")
                 .attr("class", d => `filter-button ${d.isActive ? "active" : ""}`);
-            
-            // ============================================
-            // Update the histogram
-            // ============================================
             
             updateHistogram(data);
         });
 };
 
 // ============================================
-// Update histogram based on active filters
+// Screen Size Filter (single-select) — EXTENSION
+// ============================================
+
+const populateSizeFilters = data => {
+
+    const sizeFiltersContainer = d3.select("#filters_size");
+
+    sizeFiltersContainer
+        .selectAll("button")
+        .data(sizeFilters)
+        .join("button")
+          .attr("class", d => `filter-button ${d.isActive ? "active" : ""}`)
+          .text(d => d.label)
+          .on("click", function(event, d) {
+            
+            // Single-select: only one active at a time
+            sizeFilters.forEach(f => f.isActive = false);
+            d.isActive = true;
+            
+            console.log("Size filter states:", sizeFilters);
+            
+            sizeFiltersContainer
+                .selectAll("button")
+                .attr("class", d => `filter-button ${d.isActive ? "active" : ""}`);
+            
+            updateHistogram(data);
+        });
+};
+
+// ============================================
+// Get filtered data (combined filters)
+// ============================================
+
+const getFilteredData = data => {
+
+    // ============================================
+    // Tech filter (multi-select)
+    // ============================================
+    
+    const allTechActive = filters.find(f => f.id === "all").isActive;
+    let filtered = data;
+    
+    if (!allTechActive) {
+        const activeTechIds = filters
+            .filter(f => f.id !== "all" && f.isActive)
+            .map(f => f.id);
+        
+        filtered = filtered.filter(d => activeTechIds.includes(d.screenTech));
+    }
+    
+    // ============================================
+    // Size filter (single-select)
+    // ============================================
+    
+    const allSizeActive = sizeFilters.find(f => f.id === "all-sizes").isActive;
+    
+    if (!allSizeActive) {
+        const activeSize = sizeFilters.find(f => f.isActive);
+        filtered = filtered.filter(d => 
+            Math.round(d.screenSize) === activeSize.size
+        );
+    }
+    
+    return filtered;
+};
+
+// ============================================
+// Update histogram
 // ============================================
 
 const updateHistogram = data => {
 
-    // ============================================
-    // Filter the data based on active filters
-    // ============================================
-    
-    // Check if "all" is active
-    const allActive = filters.find(f => f.id === "all").isActive;
-    
-    let filteredData;
-    
-    if (allActive) {
-        // No filter - use all data
-        filteredData = data;
-    } else {
-        // Get all active filter ids (excluding "all")
-        const activeIds = filters
-            .filter(f => f.id !== "all" && f.isActive)
-            .map(f => f.id);
-        
-        // Filter data by active screen techs
-        filteredData = data.filter(d => 
-            activeIds.includes(d.screenTech.toLowerCase())
-        );
-    }
+    const filteredData = getFilteredData(data);
     
     console.log("Filtered data length:", filteredData.length);
     
-    // ============================================
-    // Regenerate bins from filtered data
-    // ============================================
-    
     const updatedBins = binGenerator(filteredData);
-    
-    // ============================================
-    // Update the bars with transitions
-    // ============================================
     
     d3.select("#histogram")
         .select("svg")

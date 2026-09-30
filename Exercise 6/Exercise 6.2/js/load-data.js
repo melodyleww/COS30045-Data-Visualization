@@ -6,9 +6,10 @@ d3.csv("data/W6_TVdata.csv", d => {
   return {
     brand: d.brand,
     model: d.model,
-    star2: +d.star2,
+    star2: +d.star,
     energyConsumption: +d.energyConsumption,
-    screenTech: d.screenTech || d.screen_tech
+    screenTech: (d.screenTech || d.screen_tech || "").toLowerCase(),
+    screenSize: +d.screenSize || +d.screen_size || 0   // ← NEW
   };
 }).then(data => {
   
@@ -20,4 +21,5 @@ d3.csv("data/W6_TVdata.csv", d => {
   
   // Populate the filter buttons
   populateFilters(data);
+  populateSizeFilters(data);   // ← NEW
 });

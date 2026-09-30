@@ -85,10 +85,11 @@ footer p {
    FILTER BUTTONS
    ============================================ */
 
-#filters_screen {
+#filters_screen,
+#filters_size {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 1.2rem;
     margin-bottom: 1.5rem;
     margin-top: 1rem;
 }

@@ -45,3 +45,16 @@ const filters = [
     { id: "led", label: "LED", isActive: false },
     { id: "oled", label: "OLED", isActive: false }
 ];
+
+// ============================================
+// Screen size filter configuration (Extension)
+// ============================================
+
+const sizeFilters = [
+    { id: "all-sizes", label: "All", size: null, isActive: true },
+    { id: "24", label: "24\"", size: 24, isActive: false },
+    { id: "32", label: "32\"", size: 32, isActive: false },
+    { id: "55", label: "55\"", size: 55, isActive: false },
+    { id: "65", label: "65\"", size: 65, isActive: false },
+    { id: "98", label: "98\"", size: 98, isActive: false }
+];
